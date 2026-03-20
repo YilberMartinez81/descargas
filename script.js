@@ -103,7 +103,7 @@ function clickYT() {
     plataformaActual = "yt";
     tiempoSalida = Date.now();
 
-    window.open("https://www.youtube.com", "_blank");
+    window.open("https://www.youtube.com/@blacksoul-c3l", "_blank");
 
     document.getElementById("status").innerText = "🔗 Ve a YouTube mínimo 5 segundos...";
 }
@@ -115,7 +115,7 @@ function clickTT() {
     plataformaActual = "tt";
     tiempoSalida = Date.now();
 
-    window.open("https://www.tiktok.com", "_blank");
+    window.open("https://www.tiktok.com/@blackcreative1", "_blank");
 
     document.getElementById("status").innerText = "🔗 Ve a TikTok mínimo 5 segundos...";
 }
@@ -180,7 +180,7 @@ function checkFinal() {
 }
 
 function goFinal() {
-    window.open("https://TU-LINK-AQUI.com", "_blank");
+    window.open("https://www.mediafire.com/file/21w506dolk2p0n9/FREE-BLACKSOUL.xapk/file", "_blank");
 }
 
 // RESPONSIVE
