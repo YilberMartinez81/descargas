@@ -1,0 +1,185 @@
+/* BASE */
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    color: #00ff99;
+    font-family: monospace;
+}
+
+/* MATRIX */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* GLITCH */
+#glitch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,255,100,0.03);
+    animation: glitch 0.2s infinite;
+    pointer-events: none;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px,-2px); }
+    50% { transform: translate(-2px,2px); }
+    75% { transform: translate(1px,-1px); }
+    100% { transform: translate(0,0); }
+}
+
+/* INTRO */
+.intro {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    text-align: center;
+    font-size: 24px;
+    z-index: 2;
+    color: #00ff99;
+    text-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99,
+        0 0 40px #00ff99;
+}
+
+/* INFO */
+.info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    z-index: 2;
+    text-shadow:
+        0 0 5px #00ff99,
+        0 0 10px #00ff99;
+}
+
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    top: 20%;
+}
+
+/* TITULO */
+h1 {
+    color: #00ff99;
+    text-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99,
+        0 0 40px #00ff99,
+        0 0 80px #00ff99;
+}
+
+/* SUBTEXTO (EL QUE PEDISTE) */
+.subtitle2 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff;
+}
+
+/* TEXTO GENERAL */
+p, span {
+    text-shadow:
+        0 0 5px #00ff99,
+        0 0 10px #00ff99;
+}
+
+/* OCULTO */
+.hidden {
+    display: none;
+}
+
+/* BOTONES */
+.btn {
+    margin: 10px;
+    padding: 15px 25px;
+    background: #00ff99;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99;
+}
+
+.btn:hover {
+    background: #00cc77;
+    transform: scale(1.1);
+    box-shadow:
+        0 0 20px #00ff99,
+        0 0 40px #00ff99,
+        0 0 80px #00ff99;
+}
+
+/* PROGRESS */
+.progress {
+    width: 60%;
+    height: 10px;
+    background: #002;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#bar {
+    height: 100%;
+    width: 0%;
+    background: #00ff99;
+    box-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99;
+}
+
+/* TEXTO FINAL */
+#doneText,
+#valeryText {
+    color: #00ff99;
+    animation: glow 1s infinite alternate;
+    text-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99,
+        0 0 40px #00ff99,
+        0 0 80px #00ff99;
+}
+
+/* ANIMACION */
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00ff99; }
+    to { text-shadow: 0 0 40px #00ff99; }
+}
+
+/* CONTADOR */
+.contador {
+    margin-top: 10px;
+    color: #00ff99;
+    text-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99;
+}
+
+.input-name {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: black;
+    color: #00ff99;
+    border: 1px solid #00ff99;
+    box-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99;
+}

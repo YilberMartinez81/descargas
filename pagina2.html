@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Sistema De Descarga</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="6711359.png">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<div id="glitch"></div>
+
+<div id="intro" class="intro"></div>
+<div id="hackInfo" class="hidden info"></div>
+
+<div id="main" class="content hidden">
+
+    <h1>🔒 SISTEMA CONTROLADO</h1>
+
+    <p class="subtitle2">
+        Sigue estas cuentas para continuar y desbloquear el enlace 🔓
+    </p>
+
+    <p class="contador">
+        👁️ Usuarios activos: <span id="viewers"></span>
+    </p>
+
+    <input type="text" id="username" placeholder="Ingresa tu nombre..." class="input-name">
+<button class="btn" onclick="guardarNombre()">Guardar nombre</button>
+
+    <div class="container">
+        <button class="btn" onclick="clickYT()">YouTube</button>
+        <button class="btn" onclick="clickTT()">TikTok</button>
+    </div>
+
+    <p id="status"></p>
+
+    <div id="timer" class="hidden">
+        ⏳ <span id="count">5</span>s
+    </div>
+
+    <div class="progress">
+        <div id="bar"></div>
+    </div>
+
+    <h2 id="doneText" class="hidden">🔓 ACCESO TOTAL</h2>
+
+    <h3 id="valeryText" class="hidden">
+        💚 Valery desbloqueó el sistema
+    </h3>
+
+    <button id="finalBtn" class="btn hidden" onclick="goFinal()">
+        🔓 DESCARGA FINAL
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

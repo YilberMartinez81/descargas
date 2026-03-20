@@ -1,0 +1,80 @@
+/* FONDO CON GLOW */
+body {
+    background: radial-gradient(circle at center, #001a0f, #000);
+}
+
+/* CENTRAR */
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* TITULO */
+.center-box h1 {
+    font-size: 32px;
+    text-shadow: 0 0 20px #00ff99;
+}
+
+/* SUBTITULO */
+#subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 1;
+    color: #ffffff; /* 🔥 blanco */
+    text-shadow: 0 0 10px #ffffff; /* brillo elegante */
+}
+/* BOTÓN GRANDE */
+.big {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin-top: 20px;
+}
+
+/* PULSO NEÓN */
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px #00ff99;
+    }
+    50% {
+        box-shadow: 0 0 25px #00ff99;
+    }
+    100% {
+        box-shadow: 0 0 5px #00ff99;
+    }
+}
+
+/* ENTRADA */
+.center-box {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .center-box h1 {
+        font-size: 22px;
+    }
+
+    .big {
+        font-size: 16px;
+        padding: 15px 25px;
+    }
+}
+
