@@ -105,7 +105,7 @@ function clickYT() {
 
     window.open("https://www.youtube.com/@blacksoul-c3l", "_blank");
 
-    document.getElementById("status").innerText = "🔗 Ve a YouTube mínimo 5 segundos...";
+    document.getElementById("status").innerText = "🔗 Ve a YouTube Y suscribete";
 }
 
 function clickTT() {
@@ -117,7 +117,7 @@ function clickTT() {
 
     window.open("https://www.tiktok.com/@blackcreative1", "_blank");
 
-    document.getElementById("status").innerText = "🔗 Ve a TikTok mínimo 5 segundos...";
+    document.getElementById("status").innerText = "🔗 Ve a TikTok Y sale en seguir";
 }
 
 // DETECTAR REGRESO
@@ -130,7 +130,7 @@ document.addEventListener("visibilitychange", () => {
         if (diferencia >= 5) {
             validarAccion();
         } else {
-            document.getElementById("status").innerText = "⛔ Quédate al menos 5 segundos";
+            document.getElementById("status").innerText = "⛔ Tienes que suscribirte/seguir por al menos 5 segundos. Intenta de nuevo.";
         }
 
         tiempoSalida = 0;
@@ -171,16 +171,21 @@ function validarAccion() {
 function checkFinal() {
     if (ytDone && ttDone) {
         document.getElementById("doneText").classList.remove("hidden");
-        document.getElementById("finalBtn").classList.remove("hidden");
 
         const texto = document.getElementById("valeryText");
         texto.innerText = "💚 " + nombreUsuario + " desbloqueó el sistema";
         texto.classList.remove("hidden");
-    }
-}
 
-function goFinal() {
-    window.open("https://www.mediafire.com/file/21w506dolk2p0n9/FREE-BLACKSOUL.xapk/file", "_blank");
+        // Mostrar descargas
+        document.getElementById("emuTitle").classList.remove("hidden");
+        document.getElementById("emuBtn").classList.remove("hidden");
+
+        document.getElementById("ffTitle").classList.remove("hidden");
+        document.getElementById("ffBtn").classList.remove("hidden");
+
+        document.getElementById("customTitle").classList.remove("hidden");
+        document.getElementById("customBtn").classList.remove("hidden");
+    }
 }
 
 // RESPONSIVE
@@ -188,3 +193,15 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+function descargarEmulador() {
+    window.open("https://www.mediafire.com/file/41zo1mkxulfhjj6/BluestaksFino-BLACK.exe/file", "_blank");
+}
+
+function descargarFF() {
+    window.open("https://www.mediafire.com/file/3tdabn5jt93nrft/FREE_FIRE-BLACK.apk/file", "_blank");
+}
+
+function descargarCustom() {
+    window.open("https://www.mediafire.com/file/i6uqmiheneb0utu/com.dts.freefireth.cfg/file", "_blank");
+}
