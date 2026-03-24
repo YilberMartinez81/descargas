@@ -1,0 +1,91 @@
+body{
+    margin:0;
+    background:black;
+    font-family:monospace;
+    color:#00ff99;
+}
+
+/* TITULO */
+h1{
+    text-align:center;
+    padding:20px;
+    text-shadow:0 0 20px #00ff99;
+}
+
+/* BUSCADOR */
+.search-container{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:rgba(0,255,153,0.05);
+    border:1px solid #00ff99;
+    border-radius:30px;
+    padding:6px 12px;
+    width:280px;
+    max-width:90%;
+    box-shadow:0 0 8px #00ff99;
+}
+
+.icon{
+    margin-right:8px;
+}
+
+#searchInput{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#00ff99;
+    font-family:monospace;
+    font-size:13px;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* TARJETA */
+.video-card{
+    background:#000;
+    border:1px solid #00ff99;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 10px #00ff99;
+    min-width: 250px;  /* mantiene tamaño base */
+    max-width: 300px;  /* opcional, para no crecer demasiado */
+    width: 100%;
+}
+
+.video-card:hover{
+    box-shadow:0 0 25px #00ff99;
+}
+
+/* MINIATURA 16:9 PERFECTA */
+.thumb{
+    width:100%;
+    aspect-ratio: 16/9;   /* 🔥 clave */
+    object-fit:cover;     /* 🔥 evita deformación */
+    display:block;
+}
+
+/* INFO */
+.info{
+    padding:10px;
+    text-align:center;
+}
+
+.title{
+    font-size:14px;
+    text-shadow:0 0 10px #00ff99;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>BLACKSOUL VIDEOS</title>
+<link rel="stylesheet" href="videos.css">
+<link rel="icon" href="v.png">
+</head>
+
+<body>
+
+<h1>📹 BLACKSOUL VIDEOS 📹</h1>
+
+<!-- BUSCADOR -->
+<div class="search-container">
+    <div class="search-box">
+        <span class="icon">🔍</span>
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Buscar..."
+            onkeyup="buscarVideos()"
+        >
+    </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="container" id="videos"></div>
+
+<script src="videos.js"></script>
+</body>
+</html>
