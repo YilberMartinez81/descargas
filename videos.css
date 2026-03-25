@@ -1,91 +1,385 @@
-body{
-    margin:0;
-    background:black;
-    font-family:monospace;
-    color:#00ff99;
+/* ================= BASE ================= */
+body {
+    margin: 0;
+    background: black;
+    color: #00ff99;
+    font-family: Arial, sans-serif;
 }
 
-/* TITULO */
-h1{
-    text-align:center;
-    padding:20px;
-    text-shadow:0 0 20px #00ff99;
+.titulo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+
+    margin: 20px 0;
+    position: relative;
 }
 
-/* BUSCADOR */
-.search-container{
-    display:flex;
-    justify-content:center;
-    margin:20px 0;
+/* ================= LOGIN ================= */
+#lockBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.search-box{
-    display:flex;
-    align-items:center;
-    background:rgba(0,255,153,0.05);
-    border:1px solid #00ff99;
-    border-radius:30px;
-    padding:6px 12px;
-    width:280px;
-    max-width:90%;
-    box-shadow:0 0 8px #00ff99;
+#lockBtn:hover {
+    transform: scale(1.2) rotate(10deg);
+    text-shadow: 0 0 10px #00ff99;
 }
 
-.icon{
-    margin-right:8px;
+.titulo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00ff99;
+    animation: brillo 1.5s infinite alternate;
 }
 
-#searchInput{
-    flex:1;
-    background:transparent;
-    border:none;
-    outline:none;
-    color:#00ff99;
-    font-family:monospace;
-    font-size:13px;
+@keyframes brillo {
+    from {
+        text-shadow:
+            0 0 5px #00ff99,
+            0 0 10px #00ff99,
+            0 0 20px #00ff99;
+    }
+    to {
+        text-shadow:
+            0 0 10px #00ff99,
+            0 0 30px #00ff99,
+            0 0 60px #00ff99,
+            0 0 100px #00ff99;
+    }
 }
 
-/* GRID */
-.container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-    padding:20px;
+#loginBox {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    display: none;
+
+    padding: 15px;
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.95);
+    border: 1px solid rgba(0,255,153,0.3);
+
+    box-shadow: 0 0 15px rgba(0,255,153,0.2);
 }
 
-/* TARJETA */
-.video-card{
-    background:#000;
-    border:1px solid #00ff99;
-    border-radius:10px;
-    overflow:hidden;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 10px #00ff99;
-    min-width: 250px;  /* mantiene tamaño base */
-    max-width: 300px;  /* opcional, para no crecer demasiado */
+#loginBox input {
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(0,255,153,0.3);
+
+    background: transparent;
+    color: #00ff99;
+    outline: none;
+}
+
+
+@keyframes glitchTop {
+    0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+    100% { clip-path: inset(0 0 60% 0); transform: translate(2px, 2px); }
+}
+
+@keyframes glitchBottom {
+    0% { clip-path: inset(60% 0 0 0); transform: translate(2px, 2px); }
+    100% { clip-path: inset(80% 0 0 0); transform: translate(-2px, -2px); }
+}
+
+#loginBtn {
     width: 100%;
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(45deg, #00ff99, #00cc77);
+    color: black;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.video-card:hover{
-    box-shadow:0 0 25px #00ff99;
+#loginBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00ff99;
 }
 
-/* MINIATURA 16:9 PERFECTA */
-.thumb{
-    width:100%;
-    aspect-ratio: 16/9;   /* 🔥 clave */
-    object-fit:cover;     /* 🔥 evita deformación */
-    display:block;
+/* ================= PANEL ADMIN ================= */
+.admin-panel {
+    margin: 50px auto;
+    width: 95%;
+    max-width: 420px;
+
+    padding: 25px;
+    border-radius: 20px;
+
+    background: linear-gradient(145deg, #050505, #0f0f0f);
+    border: 1px solid rgba(0,255,153,0.15);
+
+    box-shadow:
+        0 0 20px rgba(0,255,153,0.15),
+        inset 0 0 10px rgba(0,255,153,0.05);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    animation: fadeIn 0.4s ease;
 }
 
-/* INFO */
-.info{
-    padding:10px;
-    text-align:center;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
 }
 
-.title{
-    font-size:14px;
-    text-shadow:0 0 10px #00ff99;
+.admin-title {
+    text-align: center;
+    font-size: 22px;
+    text-shadow: 0 0 10px rgba(0,255,153,0.4);
+}
+
+.admin-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-section label {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.admin-panel input {
+    padding: 13px;
+    border-radius: 12px;
+
+    border: 1px solid rgba(0,255,153,0.2);
+    background: #0a0a0a;
+    color: #00ff99;
+
+    outline: none;
+    transition: 0.25s;
+}
+
+.admin-panel input:focus {
+    border-color: #00ff99;
+    box-shadow: 0 0 10px rgba(0,255,153,0.4);
+}
+
+/* LINKS */
+.link-item {
+    display: flex;
+    gap: 8px;
+}
+
+.link-item input {
+    flex: 1;
+}
+
+.link-item button {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #ff2a2a;
+    color: white;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.link-item button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 6px red;
+}
+
+/* BOTONES */
+.admin-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.admin-buttons button {
+    flex: 1;
+    padding: 13px;
+
+    border-radius: 12px;
+    border: none;
+
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-buttons button:first-child {
+    background: transparent;
+    border: 1.5px dashed #00ff99;
+    color: #00ff99;
+}
+
+.admin-buttons button:last-child {
+    background: linear-gradient(45deg, #00ff99, #00cc77);
+    color: black;
+}
+
+.admin-buttons button:hover {
+    transform: scale(1.05);
+}
+
+/* LOGOUT */
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-logout {
+    padding: 6px 12px;
+
+    border-radius: 8px;
+    border: none;
+
+    background: red;
+    color: white;
+
+    cursor: pointer;
+}
+
+/* ================= BUSCADOR ================= */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
+.search-box {
+    position: relative;
+    width: 320px;
+}
+
+.search-box::before {
+    content: "🔍";
+    position: absolute;
+    left: 15px;
+    top: 9px;
+    font-size: 18px;
+}
+
+#searchInput {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 15px 0 45px;
+
+    border-radius: 25px;
+    border: 2px solid #00ff99;
+
+    background: black;
+    color: #00ff99;
+
+    outline: none;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 15px #00ff99;
+    transform: scale(1.05);
+}
+
+/* ================= VIDEOS ================= */
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.video-card {
+    border: 1px solid #00ff99;
+    border-radius: 10px;
+    overflow: hidden;
+
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,255,153,0.3);
+}
+
+.thumb-container {
+    aspect-ratio: 16/9;
+}
+
+.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.video-actions button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.video-actions button:hover {
+    transform: scale(1.2);
+    background: #00ff99;
+    color: black;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#linksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* separación entre links */
+}
+
+.link-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.link-item input {
+    flex: 1;
+}
+
+.link-item button {
+    width: 35px;
+    height: 35px;
 }
