@@ -49,8 +49,7 @@ function typeEffect() {
             document.getElementById("intro").classList.add("hidden");
             document.getElementById("main").classList.remove("hidden");
 
-            // Cargar descargas según ID
-            cargarDescargasPorID();
+            // ❌ YA NO SE CARGAN LINKS AQUÍ
         }, 1000);
         return;
     }
@@ -59,7 +58,7 @@ function typeEffect() {
 }
 typeEffect();
 
-// =================== CONTADOR FAKE ===================
+// =================== CONTADOR ===================
 function updateViewers() {
     const num = Math.floor(Math.random() * 200) + 50;
     document.getElementById("viewers").innerText = num;
@@ -89,14 +88,14 @@ function nombreValido() {
     return true;
 }
 
-// =================== TIEMPO REAL / SISTEMA ===================
+// =================== SISTEMA ===================
 let tiempoSalida = 0;
 let plataformaActual = "";
 let ytDone = false;
 let ttDone = false;
 let progress = 0;
 
-// ------------------- BOTONES -------------------
+// BOTONES
 function clickYT() {
     if (!nombreValido()) return;
     if (ytDone) return;
@@ -119,7 +118,7 @@ function clickTT() {
     document.getElementById("status").innerText = "🔗 Ve a TikTok y sigue";
 }
 
-// ------------------- DETECTAR REGRESO -------------------
+// DETECTAR REGRESO
 document.addEventListener("visibilitychange", () => {
     if (!document.hidden && tiempoSalida > 0) {
         const tiempoActual = Date.now();
@@ -136,7 +135,7 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
-// ------------------- VALIDACIÓN -------------------
+// VALIDACIÓN
 function validarAccion() {
     if (plataformaActual === "yt" && !ytDone) {
         document.getElementById("status").innerText = "🔍 Verificando suscripción...";
@@ -161,103 +160,53 @@ function validarAccion() {
     }
 }
 
-// ------------------- FINAL -------------------
+// FINAL (🔥 SOLO AQUÍ APARECEN LOS LINKS)
 function checkFinal() {
+
+    if (!nombreUsuario.trim()) {
+        document.getElementById("status").innerText = "⛔ Debes ingresar tu nombre";
+        return;
+    }
+
     if (ytDone && ttDone) {
+
         document.getElementById("doneText").classList.remove("hidden");
+
         const texto = document.getElementById("valeryText");
         texto.innerText = "💚 " + nombreUsuario + " desbloqueó el sistema";
         texto.classList.remove("hidden");
 
-        // Mostrar descargas (solo las que existan)
-        cargarDescargasPorID();
+        // 🔥 AQUÍ se generan los botones
+        cargarDescargas();
     }
 }
 
-// =================== RESPONSIVE ===================
+// RESPONSIVE
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
-// =================== DESCARGAS DINÁMICAS POR ID ===================
-const descargasPorID = {
-    1: {
-        emulador: "https://www.mediafire.com/file/41zo1mkxulfhjj6/BluestaksFino-BLACK.exe/file",
-        freefire: "https://www.mediafire.com/file/3tdabn5jt93nrft/FREE_FIRE-BLACK.apk/file",
-        custom: "https://www.mediafire.com/file/i6uqmiheneb0utu/com.dts.freefireth.cfg/file"
-    },
-    2: {
-        emulador: "https://www.mediafire.com/file/abcd1234/emulador2.exe/file",
-        freefire: "https://www.mediafire.com/file/abcd1234/freefire2.apk/file",
-        custom: "https://www.mediafire.com/file/abcd1234/custom2.cfg/file"
-    },
-    3: {
-        emulador: "https://www.mediafire.com/file/efgh5678/emulador3.exe/file",
-        freefire: "https://www.mediafire.com/file/efgh5678/freefire3.apk/file",
-        custom: "https://www.mediafire.com/file/efgh5678/custom3.cfg/file"
-    },
-    4: {
-        emulador: "https://www.mediafire.com/file/ijkl9012/emulador4.exe/file",
-        freefire: "https://www.mediafire.com/file/ijkl9012/freefire4.apk/file",
-        custom: "https://www.mediafire.com/file/ijkl9012/custom4.cfg/file"
-    },
-    5: {
-        emulador: "https://www.mediafire.com/file/mnop3456/emulador5.exe/file",
-        freefire: "https://www.mediafire.com/file/mnop3456/freefire5.apk/file",
-        custom: "https://www.mediafire.com/file/mnop3456/custom5.cfg/file"
-    },
-    6: {
-        emulador: "https://www.mediafire.com/file/qrst7890/emulador6.exe/file",
-        freefire: "https://www.mediafire.com/file/qrst7890/freefire6.apk/file",
-        custom: "https://www.mediafire.com/file/qrst7890/custom6.cfg/file"
-    },
-    7: {
-        emulador: "https://www.mediafire.com/file/uvwx1234/emulador7.exe/file",
-        custom: "https://www.mediafire.com/file/uvwx1234/custom7.cfg/file"
-    },
-    8: {
-        freefire: "https://www.mediafire.com/file/yzab5678/freefire8.apk/file",
-    },
-    9: {
-        emulador: "https://www.mediafire.com/file/cdef9012/emulador9.exe/file",
-        freefire: "https://www.mediafire.com/file/cdef9012/freefire9.apk/file",
-        custom: "https://www.mediafire.com/file/cdef9012/custom9.cfg/file"
-    },
-    10: {
-        emulador: "https://www.mediafire.com	file/g hij3456/emulador10.exe	file",
-        freefire: "https://www.mediafire.com	file/g hij3456/freefir10.apk	file",
-        custom: "https://www.mediafire.com	file/g hij3456/custom10.cfg	file"
-    }
-};
+// =================== LINKS DINÁMICOS ===================
+function cargarDescargas() {
+    const data = JSON.parse(localStorage.getItem("videoSeleccionado"));
+    if (!data || !data.links) return;
 
-function cargarDescargasPorID() {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    const contenedor = document.getElementById("main");
 
-    // Ocultar todos los botones y títulos al inicio
-    const botones = ["emuBtn", "ffBtn", "customBtn"];
-    const titulos = ["emuTitle", "ffTitle", "customTitle"];
-    botones.forEach(b => document.getElementById(b).classList.add("hidden"));
-    titulos.forEach(t => document.getElementById(t).classList.add("hidden"));
+    document.querySelectorAll(".dynamic-download").forEach(e => e.remove());
 
-    if (!id || !descargasPorID[id]) return;
+    data.links.forEach(link => {
 
-    const data = descargasPorID[id];
+        const boton = document.createElement("button");
+        boton.className = "btn dynamic-download";
+        boton.innerText = "⬇️ " + link.nombre;
+        boton.onclick = () => window.open(link.url);
 
-    if (data.emulador) {
-        document.getElementById("emuBtn").classList.remove("hidden");
-        document.getElementById("emuTitle").classList.remove("hidden");
-        document.getElementById("emuBtn").onclick = () => window.open(data.emulador, "_blank");
-    }
-    if (data.freefire) {
-        document.getElementById("ffBtn").classList.remove("hidden");
-        document.getElementById("ffTitle").classList.remove("hidden");
-        document.getElementById("ffBtn").onclick = () => window.open(data.freefire, "_blank");
-    }
-    if (data.custom) {
-        document.getElementById("customBtn").classList.remove("hidden");
-        document.getElementById("customTitle").classList.remove("hidden");
-        document.getElementById("customBtn").onclick = () => window.open(data.custom, "_blank");
-    }
+        contenedor.appendChild(boton);
+    });
 }
+
+document.getElementById("backBtn").onclick = () => {
+    window.location.href = "videos.html";
+};

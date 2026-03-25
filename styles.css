@@ -183,3 +183,33 @@ p, span {
         0 0 10px #00ff99,
         0 0 20px #00ff99;
 }
+
+#backBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 999;
+
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+
+    background: #00ff99;
+    color: black;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #00ff99,
+        0 0 20px #00ff99;
+
+    transition: 0.3s;
+}
+
+#backBtn:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 20px #00ff99,
+        0 0 40px #00ff99;
+}

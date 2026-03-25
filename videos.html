@@ -9,22 +9,52 @@
 
 <body>
 
-<h1>📹 BLACKSOUL VIDEOS 📹</h1>
+<h1 class="titulo glitch" data-text="📹 BLACKSOUL VIDEOS 📹">
+    📹 BLACKSOUL VIDEOS 📹
+</h1>
 
-<!-- BUSCADOR -->
+<div id="lockBtn">🔒</div>
+
+<div id="loginBox">
+    <input id="adminID" placeholder="ID" autocomplete="off">
+    <input id="adminPass" type="password" placeholder="Contraseña">
+    <button id="loginBtn">Entrar</button>
+</div>
+
+<div id="adminPanel" class="admin-panel" style="display:none;">
+
+    <div class="logout-container">
+        <button class="btn-logout" id="logoutBtn">Cerrar sesión</button>
+    </div>
+
+    <h2 class="admin-title">⚙️ Panel Admin</h2>
+
+    <div class="admin-section">
+        <label>Título</label>
+        <input id="titulo" placeholder="Nombre del video">
+
+        <label>Miniatura</label>
+        <input id="imagen" placeholder="URL o YouTube">
+    </div>
+
+    <div class="admin-section">
+        <label>Links</label>
+        <div id="linksContainer"></div>
+    </div>
+
+    <div class="admin-buttons">
+        <button id="addLinkBtn">➕ Añadir</button>
+        <button id="saveBtn">💾 Guardar</button>
+    </div>
+
+</div>
+
 <div class="search-container">
     <div class="search-box">
-        <span class="icon">🔍</span>
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Buscar..."
-            onkeyup="buscarVideos()"
-        >
+        <input id="searchInput" placeholder="Buscar...">
     </div>
 </div>
 
-<!-- VIDEOS -->
 <div class="container" id="videos"></div>
 
 <script src="videos.js"></script>
